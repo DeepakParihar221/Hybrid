@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/buyer', require('./routes/api/buyer'));
+app.use('/api/seller', require('./routes/api/seller'));
 
 const port = process.env.PORT || 3000;
 app.listen(3000, () => {

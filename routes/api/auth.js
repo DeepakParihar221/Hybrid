@@ -67,9 +67,9 @@ router.post(
 // @desc     Authenticate user & get token
 // @access   Public
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, role } = req.body;
     try {
-        let user = await User.findOne({ email });
+        let user = await User.findOne({ email, role });
 
         if (!user) {
             return res
