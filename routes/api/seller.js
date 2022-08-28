@@ -4,11 +4,12 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const Catalog = require('../../models/Catalog');
 const Product = require('../../models/Product');
+const mongoose = require('mongoose');
 
 // @route    POST api/seller/create-catalog
 // @desc     Create catalog
 // @access   Public
-router.use('/create-catalog', auth, async(req, res) => {
+router.post('/create-catalog', auth, async(req, res) => {
     // console.log(req.user.id);
     try {
         const sellerId = req.user.id;
@@ -49,6 +50,24 @@ router.use('/create-catalog', auth, async(req, res) => {
         console.error(err.message);
         res.status(500).send('Server error');
     }
-    let catalog = await Catalog.findOne({})
 });
+
+router.get('/orders', auth, async (req, res) => {
+    try {
+        const sellerId = req.user.id;
+        // console.log(sellerId);
+        const user = await User.findById({_id: sellerId});
+        if(user.role==='buyer'){
+            return res.status(400).send({
+                "msg": "Invalid User Access"
+            });
+        };
+        const id = mongoose.Types.ObjectId(sellerId);
+        const orders = await Order.find({sellerID: id});
+        res.json(orders);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+})
 module.exports = router;
