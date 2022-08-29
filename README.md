@@ -35,8 +35,8 @@ Seller APIs
 1) Create Catalog -> Type: Post
 - http://localhost:3000/api/seller/create-catalog
 
-Headers required -> Use Token generated in register api because all other users have their catalog in database and pass as x-auth-token
-Data to be passed.
+Headers required -> Use Token generated in register api because all other users have their catalog in database and pass as x-auth-token <br />
+Data to be passed. <br />
 {
     "product": ["mac book"]
 }
@@ -51,8 +51,8 @@ Buyer APIs
 1) Get list of sellers
 - http://localhost:3000/api/buyer/list-of-sellers
 
-Headers required -> Use Token generated in login api and pass as x-auth-token
-We need a buyer's token so change the data in login api with the below given data
+Headers required -> Use Token generated in login api and pass as x-auth-token <br />
+We need a buyer's token so change the data in login api with the below given data <br />
 {
     "email": "test1@gmail.com",
     "password": "12345678",
@@ -62,8 +62,8 @@ We need a buyer's token so change the data in login api with the below given dat
 2) Get a seller's catalog
 - http://localhost:3000/api/buyer/seller-catalog/6308d62c1e796befb16923b6
 
-Headers required -> Use Token generated in login api and pass as x-auth-token
-We need a buyer's token so change the data in login api with the below given data
+Headers required -> Use Token generated in login api and pass as x-auth-token <br />
+We need a buyer's token so change the data in login api with the below given data <br />
 {
     "email": "test1@gmail.com",
     "password": "12345678",
@@ -73,17 +73,17 @@ We need a buyer's token so change the data in login api with the below given dat
 3) Create order
 - http://localhost:3000/api/buyer/create-order/6308d6361e796befb16923b9
 
-Headers required -> Use Token generated in login api and pass as x-auth-token
-We need a buyer's token so change the data in login api with the below given data
+Headers required -> Use Token generated in login api and pass as x-auth-token <br />
+We need a buyer's token so change the data in login api with the below given data <br />
 {
     "email": "test1@gmail.com",
     "password": "12345678",
     "role": "buyer"
 }
 
-Data to be passed.
+Data to be passed. <br />
 {
-    "product": ["mac book"]
+    "product": ["dell laptop"]
 }
 
 
