@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://admin:hybrid@cluster0.5krzdxw.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "hybrid"
+}

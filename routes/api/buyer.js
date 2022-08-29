@@ -7,9 +7,9 @@ const User = require('../../models/User');
 const Order = require('../../models/Order');
 
 
-// @route    GET api/users
-// @desc     Register user
-// @access   Public
+// @route    GET api/buyer/list-of-sellers
+// @desc     get list of sellers
+// @access   private
 router.get('/list-of-sellers', auth, async (req, res) => {
 
     try {
@@ -22,6 +22,10 @@ router.get('/list-of-sellers', auth, async (req, res) => {
     }
   });
 
+
+  // @route    GET api/buyer/seller-catalog/:seller_id
+  // @desc     get sellers catalog
+  // @access   private
   router.get('/seller-catalog/:seller_id', auth, async (req, res) => {
     try {
         const user = await User.findById({_id: req.user.id});
@@ -46,6 +50,10 @@ router.get('/list-of-sellers', auth, async (req, res) => {
     }
   });
 
+
+  // @route    GET api/buyer/create-order/:seller_id
+  // @desc     create orders
+  // @access   private
   router.post('/create-order/:seller_id', auth, async (req, res) => {
     try {
         var buyerID = req.user.id;

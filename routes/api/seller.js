@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 // @route    POST api/seller/create-catalog
 // @desc     Create catalog
-// @access   Public
+// @access   private
 router.post('/create-catalog', auth, async(req, res) => {
     // console.log(req.user.id);
     try {
@@ -52,6 +52,10 @@ router.post('/create-catalog', auth, async(req, res) => {
     }
 });
 
+
+// @route    POST api/seller/orders
+// @desc     get orders
+// @access   private
 router.get('/orders', auth, async (req, res) => {
     try {
         const sellerId = req.user.id;
